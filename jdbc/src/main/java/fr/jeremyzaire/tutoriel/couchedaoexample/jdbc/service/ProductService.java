@@ -2,14 +2,12 @@ package fr.jeremyzaire.tutoriel.couchedaoexample.jdbc.service;
 
 import fr.jeremyzaire.tutoriel.couchedaoexample.jdbc.model.Product;
 
-import java.util.List;
-
 public interface ProductService {
-    List<Product> getProducts();
+    void getProducts();
 
     void getOneProduct();
 
-    void addProduct();
+    void addProduct(Product product);
 
     void deleteProduct();
 

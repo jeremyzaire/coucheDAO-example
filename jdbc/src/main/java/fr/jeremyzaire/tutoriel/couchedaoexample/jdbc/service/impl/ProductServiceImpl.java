@@ -24,11 +24,11 @@ public class ProductServiceImpl implements ProductService {
 
     private void initConnection() throws SQLException {
         conn = DriverManager.getConnection(
-                "jdbc:postgresql://127.0.0.1:32790/postgres", "postgres", "password");
+                "jdbc:postgresql://localhost:32790/postgres", "postgres", "password");
     }
 
 
-    public List<Product> getProducts()  {
+    public void getProducts()  {
         List<Product> result = new ArrayList<>();
         String request = "Select * from Product";
 
@@ -53,8 +53,6 @@ public class ProductServiceImpl implements ProductService {
         }
 
         result.forEach(x -> System.out.println(x));
-
-        return result;
     }
 
     @Override
@@ -63,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void addProduct() {
+    public void addProduct(Product product) {
 
     }
 

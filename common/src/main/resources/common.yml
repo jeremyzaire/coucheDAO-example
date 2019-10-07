@@ -1,6 +1,7 @@
 database:
   driver: "jdbc:postgresql"
-  host: ""
-  name: ""
-  username: ""
-  password: ""
+  host: "localhost"
+  port: "32790"
+  name: "postgres"
+  username: "postgres"
+  password: "password"
