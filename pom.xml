@@ -10,6 +10,7 @@
         <lombok.version>1.18.10</lombok.version>
         <mybatis.version>3.5.2</mybatis.version>
         <hibernate-core.version>5.4.5.Final</hibernate-core.version>
+        <hibernate-jpa.version>1.0.2.Final</hibernate-jpa.version>
     </properties>
 
     <modules>
@@ -17,7 +18,7 @@
         <module>jdbc</module>
         <module>hibernate</module>
         <module>mybatis</module>
-        <module>spring-data</module>
+        <module>springdata</module>
     </modules>
 
 

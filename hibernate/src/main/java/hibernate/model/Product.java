@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +17,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "PRODUCT_HIBERNATE",
         uniqueConstraints = { @UniqueConstraint(columnNames = { "product_id" }) })
-public class Product {
+public class Product implements Serializable {
     @Id
     @Column(name = "product_id")
     private int id;
