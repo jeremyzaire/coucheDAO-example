@@ -9,15 +9,15 @@
     <properties>
         <lombok.version>1.18.10</lombok.version>
         <mybatis.version>3.5.2</mybatis.version>
+        <hibernate-core.version>5.4.5.Final</hibernate-core.version>
     </properties>
 
     <modules>
+        <module>common</module>
         <module>jdbc</module>
         <module>hibernate</module>
         <module>mybatis</module>
         <module>spring-data</module>
-        <module>spring-data</module>
-        <module>common</module>
     </modules>
 
 
