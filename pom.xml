@@ -21,6 +21,7 @@
         <module>hibernate</module>
         <module>mybatis</module>
         <module>springdata</module>
+        <module>elastic</module>
     </modules>
 
 
