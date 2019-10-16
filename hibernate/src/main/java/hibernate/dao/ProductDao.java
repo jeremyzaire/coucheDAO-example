@@ -1,46 +1,63 @@
 package hibernate.dao;
 
 import hibernate.model.Product;
-import org.hibernate.Transaction;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
+
 public class ProductDao {
-    @PersistenceContext(unitName = "hibernate.product_catalog")
+
     private EntityManager entityManager;
+    private EntityManagerFactory entityManagerFactory;
 
     public ProductDao() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hibernate.product_catalog");
+        entityManagerFactory = Persistence.createEntityManagerFactory("product-unit");
         entityManager = entityManagerFactory.createEntityManager();
     }
 
     public void saveProduct(Product product) {
+        entityManager = entityManagerFactory.createEntityManager();
         entityManager.persist(product);
+        entityManager.close();
     }
 
-    public List<Product> getProducts() {
+    public List getProducts() {
+        entityManager = entityManagerFactory.createEntityManager();
         Query query = entityManager.createQuery("Select p from Product p");
-        return query.getResultList();
+        List products = query.getResultList();
+        entityManager.close();
+
+        return products;
     }
 
     public Product findById(int id) {
-        return entityManager.find(Product.class, id);
+        entityManager = entityManagerFactory.createEntityManager();
+        Product product = entityManager.find(Product.class, id);
+        entityManager.close();
+
+        return product;
     }
 
     public void updateProduct(Product product) {
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.merge(product);
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
     public void deleteProduct(int id) {
-        Product prodcut = entityManager.find(Product.class, id);
-        entityManager.remove(prodcut);
+        entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Product product = entityManager.find(Product.class, id);
+        entityManager.remove(product);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
     }
+
 }
