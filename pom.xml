@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.jeremyzaire.tutoriel.couchedaoexample</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-DEMO</version>
     <packaging>pom</packaging>
     <name>coucheDAO-example</name>
 
@@ -13,6 +13,8 @@
         <hibernate-core.version>5.4.5.Final</hibernate-core.version>
         <hibernate-jpa.version>1.0.2.Final</hibernate-jpa.version>
         <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
+        <jackson.version>2.9.4</jackson.version>
+        <elasticsearch.version>6.1.2</elasticsearch.version>
     </properties>
 
     <modules>
@@ -21,6 +23,7 @@
         <module>hibernate</module>
         <module>mybatis</module>
         <module>springdata</module>
+        <module>elastic</module>
     </modules>
 
 

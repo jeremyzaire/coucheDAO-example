@@ -14,12 +14,6 @@ public class Main {
 
         productService.getProducts();
 
-
-
-
-
-
-
     }
 
 }
