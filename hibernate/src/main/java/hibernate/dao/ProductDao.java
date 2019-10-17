@@ -21,7 +21,9 @@ public class ProductDao {
 
     public void saveProduct(Product product) {
         entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.persist(product);
+        entityManager.getTransaction().commit();
         entityManager.close();
     }
 
@@ -36,7 +38,9 @@ public class ProductDao {
 
     public Product findById(int id) {
         entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
         Product product = entityManager.find(Product.class, id);
+        entityManager.getTransaction().commit();
         entityManager.close();
 
         return product;
